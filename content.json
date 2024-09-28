@@ -1,0 +1,25 @@
+{
+    "name": "Fadhel Akbar",
+    "role": "Fullstack Web/Mobile Developer",
+    "description": "Saya adalah seorang profesional fullstack developer dengan pengalaman lebih dari 2 tahun. Saya menggunakan teknologi modern seperti Laravel, Vue.js, Express.js, MongoDB, Firebase, dan Flutter untuk mengembangkan aplikasi web dan mobile yang berkualitas tinggi.",
+    "projects": [
+      {
+        "name": "Sistem Administrasi Klinik Gigi",
+        "description": "Aplikasi untuk mengelola administrasi klinik gigi, termasuk pendaftaran pasien, manajemen janji temu, dan pencatatan medis."
+      },
+      {
+        "name": "Aplikasi Mobile SWS",
+        "description": "Aplikasi mobile yang mempermudah pelaporan dan manajemen data di lingkungan kerja."
+      },
+      {
+        "name": "Website GenBI UNM",
+        "description": "Website resmi GenBI UNM untuk mengelola informasi dan kegiatan komunitas."
+      }
+    ],
+    "contact": {
+      "email": "fadhel.akbar@example.com",
+      "linkedin": "https://www.linkedin.com/in/fadhelakbar",
+      "github": "https://github.com/fadhelakbar"
+    }
+  }
+  

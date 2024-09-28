@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fadhel Akbar - Fullstack Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-okaidia.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #1a202c;
+      color: white;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #2d3748;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      width: 80%;
+    }
+    #sidebar {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #2d3748;
+      transition: 0.3s;
+    }
+    #sidebar.active {
+      left: 0;
+    }
+    #sidebar ul {
+      padding: 0;
+      list-style-type: none;
+    }
+    #sidebar ul li {
+      padding: 20px;
+      border-bottom: 1px solid #4a5568;
+    }
+    #sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    pre[class*="language-"] {
+      margin: 0;
+      padding: 1em;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-gray-800 p-4 fixed w-full top-0 z-40" data-aos="fade-down">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Fadhel Akbar</h1>
+      <button class="text-white md:hidden" onclick="toggleSidebar()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#projects" class="text-white">Projects</a>
+        <a href="#skills" class="text-white">Skills</a>
+        <a href="#code" class="text-white">Code Snippets</a>
+        <a href="#contact" class="text-white">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sidebar for Mobile -->
+  <div id="sidebar">
+    <ul>
+      <li><a href="#projects" onclick="toggleSidebar()">Projects</a></li>
+      <li><a href="#skills" onclick="toggleSidebar()">Skills</a></li>
+      <li><a href="#code" onclick="toggleSidebar()">Code Snippets</a></li>
+      <li><a href="#contact" onclick="toggleSidebar()">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center bg-gray-900 pt-20" data-aos="zoom-in">
+    <img src="profile.jpg" alt="profile image" class="w-40 h-40 rounded-full shadow-lg mb-6">
+    <h1 id="name" class="text-4xl md:text-6xl font-bold"></h1>
+    <p id="role" class="text-lg md:text-2xl mt-4 text-gray-400"></p>
+    <p id="description" class="max-w-xl mt-4 text-gray-300"></p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 bg-gray-900" data-aos="fade-up">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-10">Projects</h2>
+      <div id="projects-container" class="grid gap-8 md:grid-cols-3">
+        <!-- Project Cards -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 bg-gray-800" data-aos="fade-right">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-gray-700 p-4 rounded-lg">Laravel</div>
+        <div class="bg-gray-700 p-4 rounded-lg">Vue.js</div>
+        <div class="bg-gray-700 p-4 rounded-lg">Express.js</div>
+        <div class="bg-gray-700 p-4 rounded-lg">Tailwind CSS</div>
+        <div class="bg-gray-700 p-4 rounded-lg">MongoDB</div>
+        <div class="bg-gray-700 p-4 rounded-lg">Firebase</div>
+        <div class="bg-gray-700 p-4 rounded-lg">Flutter</div>
+        <div class="bg-gray-700 p-4 rounded-lg">Git</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code Snippets Section -->
+  <section id="code" class="py-16 bg-gray-900" data-aos="fade-left">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-6">Code Snippets</h2>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold mb-4">Authentication Code (Laravel)</h3>
+          <pre class="language-php"><code class="language-php">Route::post('/login', [LoginController::class, 'authenticate']);</code></pre>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold mb-4">Vue.js Component</h3>
+          <pre class="language-javascript"><code class="language-javascript">export default { data() { return { msg: 'Hello' }; } }</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-gray-800" data-aos="fade-up">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+      <p><i class="fas fa-envelope text-blue-400"></i> Email: <a id="email" class="text-blue-400" href="#"></a></p>
+      <p><i class="fab fa-linkedin text-blue-400"></i> LinkedIn: <a id="linkedin" class="text-blue-400" href="#" target="_blank">LinkedIn</a></p>
+      <p><i class="fab fa-github text-blue-400"></i> GitHub: <a id="github" class="text-blue-400" href="#" target="_blank">GitHub</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-gray-800 text-center text-gray-500">
+    <p>&copy; 2024 Fadhel Akbar</p>
+    <div class="flex justify-center space-x-4 mt-4">
+      <a href="https://www.linkedin.com/in/fadhelakbar" target="_blank"><i class="fab fa-linkedin text-xl"></i></a>
+      <a href="https://github.com/fadhelakbar" target="_blank"><i class="fab fa-github text-xl"></i></a>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="project-modal" class="modal flex">
+    <div class="modal-content">
+      <h2 id="modal-title" class="text-2xl font-bold mb-4"></h2>
+      <p id="modal-description" class="text-gray-400"></p>
+      <button onclick="closeModal()" class="bg-blue-500 text-white px-4 py-2 mt-4 rounded">Close</button>
+    </div>
+  </div>
+
+  <!-- AOS for animations -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Prism.js for syntax highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+
+  <script>
+    AOS.init();
+
+    // Mengambil data dari file JSON
+    fetch('content.json')
+      .then(response => response.json())
+      .then(data => {
+        // Hero Section
+        document.getElementById('name').textContent = data.name;
+        document.getElementById('role').textContent = data.role;
+        document.getElementById('description').textContent = data.description;
+
+        // Projects Section
+        const projectsContainer = document.getElementById('projects-container');
+        data.projects.forEach(project => {
+          const projectCard = document.createElement('div');
+          projectCard.classList.add('bg-gray-800', 'p-6', 'rounded-lg', 'shadow-lg', 'text-center', 'cursor-pointer');
+          projectCard.innerHTML = `
+            <h3 class="text-xl font-semibold mb-2">${project.name}</h3>
+            <p class="text-gray-400">${project.description}</p>
+          `;
+          projectCard.onclick = () => openModal(project.name, project.description);
+          projectsContainer.appendChild(projectCard);
+        });
+
+        // Contact Section
+        document.getElementById('email').textContent = data.contact.email;
+        document.getElementById('email').href = 'mailto:' + data.contact.email;
+        document.getElementById('linkedin').href = data.contact.linkedin;
+        document.getElementById('github').href = data.contact.github;
+      })
+      .catch(error => console.error('Error loading content:', error));
+
+    // Modal Handling
+    function openModal(title, description) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-description').textContent = description;
+      document.getElementById('project-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('project-modal').style.display = 'none';
+    }
+
+    // Sidebar Handling
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
